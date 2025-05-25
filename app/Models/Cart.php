@@ -26,4 +26,5 @@ class Cart extends Model
             return $product->price * $product->pivot->quantity;
         });
     }
+
 }
