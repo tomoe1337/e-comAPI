@@ -17,8 +17,15 @@ class ProductService
         return $this->productRepository->findById($id);
     }
 
-    public function getProducts(string $sortBy = 'price', string $sortOrder = 'asc'): Collection
+    public function getProducts(?string $sortBy, ?string $sortOrder ): Collection
     {
+        if ($sortBy === null) {
+            $sortBy = 'price';
+        }
+
+        if ($sortOrder === null) {
+            $sortOrder = 'asc';
+        }
         return $this->productRepository->getAllSorted($sortBy, $sortOrder);
     }
 }

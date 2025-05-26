@@ -17,6 +17,10 @@ class CartService
     {
         $cart = $this->cartRepository->getByUser($user);
 
+        if ($cart === null) {
+            $cart = $this->cartRepository->createForUser($user);
+        }
+
         $this->cartRepository->addProduct($cart, $product, $quantity);
     }
 

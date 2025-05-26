@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('status')->default('pending'); // pending, paid, cancelled
             $table->decimal('total', 10, 2);
             $table->timestamp('paid_at')->nullable();
+            $table->string('payment_token')->nullable();
             $table->timestamps();
         });
 

@@ -9,6 +9,13 @@ use App\Repositories\Interfaces\CartRepositoryInterface;
 
 class CartRepository implements CartRepositoryInterface
 {
+    public function createForUser(User $user): Cart
+    {
+        $cart = new Cart();
+        $user->cart()->save($cart);
+        return $cart;
+    }
+
     public function getByUser(User $user): ?Cart
     {
         return $user->cart()->with('products')->first();

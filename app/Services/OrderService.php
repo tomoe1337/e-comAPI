@@ -22,7 +22,7 @@ class OrderService
         $order = $this->orderRepository->createFromCart([
             'user_id' => $user->id,
             'payment_method_id' => $paymentMethodId,
-            'total' => $cart->getTotalAttribute
+            'total' => $cart->total
         ]);
 
         $products = [];
