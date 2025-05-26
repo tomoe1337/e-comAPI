@@ -2,7 +2,6 @@
 
 **1. Клонируйте репозиторий:**
 
-Если ваш код находится в системе контроля версий (например, Git), клонируйте его на ваш сервер:
 ```
 bash
 git clone https://github.com/tomoe1337/e-comAPI
@@ -68,7 +67,7 @@ php artisan serve
 
 ```
 bash
-schedule:work 
+php artisan schedule:work 
 ```
 
 `Необходимо для отмены заказов неоплаченных за 2 минуты`
