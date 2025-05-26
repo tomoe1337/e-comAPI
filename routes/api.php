@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\Cart\CheckoutController;
 use App\Http\Controllers\Api\Cart\RemoveItemController;
 use App\Http\Controllers\Api\Order\GetUserOrdersController;
 use App\Http\Controllers\Api\Order\OrderPaymentController;
+use App\Http\Controllers\Api\Order\ShowOrderController;
 use App\Http\Controllers\api\Product\ShowProductController;
 use App\Http\Controllers\Api\Product\ShowProductsListController;
 use Illuminate\Http\Request;
@@ -35,4 +36,5 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     //orders
     Route::get('/orders', GetUserOrdersController::class);
+    Route::get('/orders/{order}', ShowOrderController::class);
 });
