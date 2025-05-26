@@ -8,8 +8,10 @@ class PaymentService
 {
     public function generatePaymentLink(Order $order): string
     {
+        $paymentMethodSlug = $order->paymentMethod->slug;
+
         return route('payment.process', [
-            'order_id' => $order->id,
+            'method_slug' => $paymentMethodSlug,
             'token' => $order->payment_token
         ]);
     }

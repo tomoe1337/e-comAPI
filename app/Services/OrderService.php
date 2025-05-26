@@ -53,6 +53,7 @@ class OrderService
 
     public function markAsPaid(Order $order): bool
     {
+
         return $this->orderRepository->updateStatus($order, 'paid');
     }
 }

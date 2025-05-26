@@ -42,6 +42,11 @@ class OrderRepository implements OrderRepositoryInterface
 
     public function updateStatus(Order $order, string $status): bool
     {
-        return $order->update(['status' => $status]);
+        return $order->update(
+            [
+                'status' => $status,
+                'paid_at' => now(),
+            ]
+        );
     }
 }
