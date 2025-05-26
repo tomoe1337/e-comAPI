@@ -31,12 +31,12 @@ class OrderRepository implements OrderRepositoryInterface
         return Order::with(['products', 'paymentMethod'])->find($id);
     }
 
-    public function getUserOrders(User $user, array $filters = [], array $sort = []): LengthAwarePaginator
+    public function getUserOrders(User $user, array $filters = [], string $sort): LengthAwarePaginator
     {
         return $user->orders()
             ->with(['products', 'paymentMethod'])
             ->when($filters['status'] ?? false, fn($q, $status) => $q->where('status', $status))
-            ->orderBy($sort['by'] ?? 'created_at', $sort['order'] ?? 'desc')
+            ->orderBy('created_at', $sort ?? 'desc')
             ->paginate(15);
     }
 

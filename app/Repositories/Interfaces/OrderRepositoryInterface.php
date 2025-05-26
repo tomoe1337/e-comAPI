@@ -11,6 +11,6 @@ interface OrderRepositoryInterface
     public function attachProducts(Order $order, array $products): void;
     public function createFromCart(array $data): Order;
     public function findById(int $id): ?Order;
-    public function getUserOrders(User $user, array $filters = [], array $sort = []): LengthAwarePaginator;
+    public function getUserOrders(User $user, array $filters = [], string $sort): LengthAwarePaginator;
     public function updateStatus(Order $order, string $status): bool;
 }

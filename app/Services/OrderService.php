@@ -45,10 +45,7 @@ class OrderService
 
     public function getUserOrders(User $user, ?string $status = null, string $sortOrder = 'desc'): LengthAwarePaginator
     {
-        return $this->orderRepository->getUserOrders($user, [
-            'status' => $status,
-            'sort' => ['by' => 'created_at', 'order' => $sortOrder]
-        ]);
+        return $this->orderRepository->getUserOrders($user, ['status' => $status], $sortOrder);
     }
 
     public function markAsPaid(Order $order): bool
